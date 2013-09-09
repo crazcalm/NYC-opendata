@@ -7,7 +7,7 @@ def search_options():
     """
     
     #List of search options
-    search_options = ["Name", "Keyword", "Leading Char"]
+    search_options = ["Name", "Keyword", "Leading Char", "View All"]
     
     #print list of options to screen
     for option in search_options:
@@ -55,7 +55,7 @@ def search_selector(stack):
     want to perform.
     """
     
-    print "Please select one of the following search options. \n\n"
+    print "\n\nPlease select one of the following search options. \n\n"
     
     #prints the search options
     search_options()
@@ -82,6 +82,11 @@ def search_selector(stack):
             
             print "\n\n\t\t\tLeading Char Search\n"
             results = leading_char_search(stack)
+            
+        elif search_type == "view all":
+            
+            print "\n\n\t\tView all search"
+            results = view_all_search(stack)
             
         else:
             
@@ -212,7 +217,7 @@ def leading_char_search(stack):
         char_string += stack[index].name[0]
     
     #testing
-    print char_string
+    #print char_string
     
     #list of results
     results = []
@@ -233,6 +238,14 @@ def leading_char_search(stack):
     
     #The varibale results is ready to be sent to the print_display function!
     return results
+
+def view_all_search(stack):
+    
+    #prints out the total number of results
+    total_results(stack)  
+    
+    #The varibale results is ready to be sent to the print_display function!
+    return stack
         
             
 def testing2():
@@ -242,4 +255,4 @@ def testing2():
     results = search_selector(db_items)
     print_display(results)
     
-testing2()
+#testing2()

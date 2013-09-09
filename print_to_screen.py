@@ -1,4 +1,4 @@
-import os
+import os, sys
 from call_database import call_db
 
 def user_input(start_index, end_index, stack):
@@ -15,7 +15,7 @@ def user_input(start_index, end_index, stack):
     while user == "y":
         
         print "The index set is [%s:%s]\n" %(str(start_index), str(end_index))
-        user = raw_input("\nEnter the index of the number of the item that you want to view or push enter to see the next set of items:  ")
+        user = raw_input("\nEnter the index of the number of the item that you want to view, enter 'done' to exit this function, or push enter to see the next set of items:  ")
         
         try: #checking to see if the user entered an integer
             
@@ -84,18 +84,24 @@ def print_display(stack, count = 0):
         
         if count == stopper:
             
-            response = user_input(start_index, stopper, stack)
-            
-            #reseting variables
-            start_index = count
-            stopper = stopper_function(stack, count)
-            
-            if response == "exit":
+            if count == (len(stack)-1):
                 
-                sys.exit()
-                
+                break
+            
             else:
-                pass
+                
+                response = user_input(start_index, stopper, stack)
+            
+                #reseting variables
+                start_index = count
+                stopper = stopper_function(stack, count)
+            
+                if response == "done": #exits out of the print_to_screen loop and 
+                                       #enters you back into the main program.
+                    break
+                
+                else:
+                    pass
             
         else:
             pass
