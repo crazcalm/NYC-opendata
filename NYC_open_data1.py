@@ -28,7 +28,7 @@ for x in range(1,len(stack)): #Creates the Catalog class objects
 
 #print "\n" ,stack[1][2], "\n", stack[1][2].name
 
-db = shelve.open("catalog-db6") #Creating the database
+db = shelve.open("catalog-db1") #Creating the database
 
 print db.__class__, "db.__class__"
 
