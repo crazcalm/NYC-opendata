@@ -77,31 +77,32 @@ def print_display(stack, count = 0):
     
     
     #The loop responsible for priting the items to screen    
-    while count < len(stack):
+    while count <= (len(stack)-1):
         
         print "\nindex:", count
         print "name of Item:", stack[count].name, "\n"
         
         if count == stopper:
-            
+            """
             if count == (len(stack)-1):
                 
                 break
             
             else:
-                
-                response = user_input(start_index, stopper, stack)
             
-                #reseting variables
-                start_index = count
-                stopper = stopper_function(stack, count)
+            """
+            response = user_input(start_index, stopper, stack)
             
-                if response == "done": #exits out of the print_to_screen loop and 
+            #reseting variables
+            start_index = count
+            stopper = stopper_function(stack, count)
+            
+            if response == "done": #exits out of the print_to_screen loop and 
                                        #enters you back into the main program.
-                    break
+                break
                 
-                else:
-                    pass
+            else:
+                pass
             
         else:
             pass
